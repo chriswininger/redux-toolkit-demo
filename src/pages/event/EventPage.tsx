@@ -5,7 +5,7 @@ import Events from '../components/events/events';
 export default function EventPage() {
   const { isLoading, error, currentEvents } = useCurrentEvents();
 
-  if (isLoading) {
+  if (isLoading && currentEvents.length > 0) {
     return <div>loading...</div>
   }
 
