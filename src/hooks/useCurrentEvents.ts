@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { CurrentEvent } from '../dto/currentEvent';
 
 export default function useCurrentEvents(): UseCurrentEvents {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -44,4 +45,3 @@ export interface UseCurrentEvents {
   currentEvents: CurrentEvent []
 }
 
-export type CurrentEvent = Record<string, unknown>;

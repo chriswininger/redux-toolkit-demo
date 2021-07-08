@@ -1,11 +1,11 @@
 import React from 'react';
-import useCurrentEvents from '../../hooks/useCurrentEvents';
 import Events from '../components/events/events';
+import { useCurrentEventsQuery } from '../../services/api/events/events';
 
 export default function EventPage() {
-  const { isLoading, error, currentEvents } = useCurrentEvents();
+  const { data: currentEvents, error, isLoading } = useCurrentEventsQuery(null);
 
-  if (isLoading && currentEvents.length > 0) {
+  if (isLoading || !currentEvents) {
     return <div>loading...</div>
   }
 
