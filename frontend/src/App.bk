@@ -1,0 +1,36 @@
+import React from 'react';
+import { render, screen } from '@mockStoreInitializert';
+import App from './App';
+import { MemoryRouter } from 'react-router-dom';
+import configureStore from 'redux-mock-store';
+import store, { RootState } from './store/store';
+import { Store } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+
+let mockStore: Store;
+
+beforeEach(() => {
+  mockStore = generateStoreMock();
+});
+
+test('renders learn react link', () => {
+  renderApp();
+  const headerElement = screen.getByText(/Hook Playground/i);
+  expect(headerElement).toBeInTheDocument();
+});
+
+
+function renderApp() {
+  render(
+    <Provider store={mockStore}>
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    </Provider>
+  );
+}
+
+function generateStoreMock() {
+  const mockStoreInitializer = configureStore();
+  return mockStoreInitializer(store.getState() as RootState);
+}

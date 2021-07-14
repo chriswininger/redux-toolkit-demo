@@ -9,16 +9,16 @@ export default function Events() {
   const currentEvents: CurrentEvent[] = data || [];
 
   if (isLoading) {
-    return <div>loading component...</div>
+    return <div className='ht-loading'>loading component...</div>
   }
 
   if (error) {
-    return <div>Error {error}</div>
+    return <div className='ht-error'>{`Error ${error}`}</div>
   }
 
   const renderedEvents = currentEvents.map((event, ndx) => (
       <li key={ndx}>
-        <Link to={`/event/${event.id}`}>
+        <Link className='ht-events__link' to={`/event/${event.id}`}>
           {event.slug + '--' + event.briefDescription}
         </Link>
       </li>

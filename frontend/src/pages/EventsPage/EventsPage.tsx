@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Events from '../../components/events/events';
+import Events from '../../components/events/Events';
 import { useCurrentEventsQuery } from '../../services/api/events/events';
 import { useAppDispatch, useAppSelector } from '../../store/store';
 import { filterValueUpdate, loadEvents } from './store/eventsPageSlice';
@@ -22,7 +22,7 @@ export default function EventsPage() {
   }
 
   const renderedEvents = filteredEvents.map((event, ndx) => (
-      <div key={ndx}>{event.title} -- {event.id}</div>
+      <div className='ht-events-page__event' key={ndx}>{event.title} -- {event.id}</div>
   ));
 
   return (
@@ -50,7 +50,8 @@ export default function EventsPage() {
 
   function onCurrentEnventsChannged() {
     console.info('current events changed');
-    dispatch(loadEvents(currentEvents || []));
+    const action = loadEvents(currentEvents || []);
+    dispatch(action);
   }
 
   function onRefetchClick() {
