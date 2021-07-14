@@ -3,8 +3,9 @@ import { Switch } from 'react-router-dom';
 import './App.css';
 import {Route} from 'react-router-dom';
 import HomePage from './pages/home/HomePage';
-import Header from './pages/components/header/header';
-import EventPage from './pages/event/EventPage';
+import Header from './components/header/header';
+import EventsPage from './pages/EventsPage/EventsPage';
+import EventPage from './pages/EventPage/EventPage';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Header />
 
       <Switch>
-        <Route path='/event' component={EventPage} />
+        <Route path='/event/:id' exact component={EventPage} />
+        <Route path='/event' exact component={EventsPage} />
         <Route path='/' component={HomePage} />
       </Switch>
     </>);

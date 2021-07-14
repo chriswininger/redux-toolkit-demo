@@ -9,7 +9,7 @@ export default function Header() {
 
       <div className="hp-header__links-wrapper">
         <Link to='/'>Home</Link>
-        <Link to='/event'>Event</Link>
+        <Link to='/event'>Events</Link>
       </div>
   </header>)
 }
