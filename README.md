@@ -13,6 +13,11 @@ A simple demo of rtk-toolkit
 * Explore what testing looks like when using rtk
 * Explore the use of custom sdks within the rtk query framework
 
+## Structure
+
+* `./frontend:` The meet of this demo, this is where the react + redux-toolkit lives
+* `./api:` contains a simple node backend which gives the frontend something to query :-)
+
 ## Running
 
 ### Start api server
