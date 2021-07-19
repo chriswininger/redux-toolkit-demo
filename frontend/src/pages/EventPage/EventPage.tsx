@@ -15,7 +15,6 @@ export default function EventPage () {
     return <div>Error: ${error}</div>
   }
 
-  console.log('!!! grr: ' + JSON.stringify(event, null, 4));
   return (
     <div>
       <h2>{event?.title}</h2>
